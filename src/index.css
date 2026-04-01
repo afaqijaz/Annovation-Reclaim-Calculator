@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Host Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-primary: #E97318;
+  --color-base: #080808;
+  --color-secondary: #121212;
+  --color-accent: #1A1A1A;
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  
+  --shadow-glow: 0 0 20px rgba(233, 115, 24, 0.15);
+  --shadow-glow-strong: 0 0 40px rgba(233, 115, 24, 0.3);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+@layer base {
+  body {
+    @apply bg-base text-white font-sans antialiased selection:bg-primary/30 selection:text-white;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+
+  /* Hide number input arrows */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+/* Custom Slider Styles - Refined */
+input[type="range"] {
+  @apply appearance-none bg-white/5 h-1 rounded-full outline-none cursor-pointer transition-all duration-300;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  @apply appearance-none w-4 h-4 bg-primary rounded-full border-2 border-base shadow-glow transition-all duration-300 hover:scale-125 hover:shadow-glow-strong;
+}
+
+/* Glass Effect - More Premium */
+.glass-panel {
+  @apply bg-white/[0.02] backdrop-blur-2xl border border-white/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.4)];
+}
+
+.glass-panel-hover {
+  @apply hover:bg-white/[0.04] hover:border-white/[0.1] transition-all duration-500;
+}
+
+/* Custom Number Input Styling */
+.input-number-large {
+  @apply bg-transparent font-display font-bold text-5xl text-primary outline-none w-full text-center transition-all duration-300 focus:scale-105;
+}
